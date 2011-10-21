@@ -112,7 +112,12 @@
 				}
 				
 				var alt = null;
-				if (img.hasAttribute('alt') && img.getAttribute('alt') != '') {
+				if (img.hasAttribute('title') && img.getAttribute('title') != '') {
+					alt = img.getAttribute('title');
+					alt = alt.split("\"").join("\\\"");
+					alt = "\""+alt+"\"";
+				}
+				else if (img.hasAttribute('alt') && img.getAttribute('alt') != '') {
 					alt = img.getAttribute('alt');
 					alt = alt.split("\"").join("\\\"");
 					alt = "\""+alt+"\"";
@@ -560,18 +565,18 @@
 			}
 			sup { bottom: 0.5ex; }
 			sub { top: 0.5ex; }
-			
+					
 			@font-face {
 			  font-family: Hiragino Mincho;
 			  src: local('HiraMinProN-W3');
 			}
-			
+
 			@font-face {
 			  font-family: Hiragino Mincho;
 			  src: local('HiraMinProN-W6');
 			  font-weight: bold;
 			}
-					
+
 			html {
 				font: %dpt 'Georgia', 'Hiragino Mincho', serif;
 			}
